@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import SelectList from '../SelectList';
 
 const menus = [
   {
@@ -17,7 +16,7 @@ const menus = [
   },
   {
     seleccion: 'Número de cilindros',
-    opciones: ['4 clilindros', '6 clilindros', '8 clilindros', '3 clilindros'],
+    opciones: ['4 cilindros', '6 cilindros', '8 cilindros', '3 cilindros'],
     costo: [33, 48, 53, 120],
   },
   {
@@ -53,13 +52,7 @@ const menus = [
 ];
 
 function NestedSelects() {
-  const [labor, setLabor] = useState('');
-  const [injection, setInjection] = useState('');
-  const [cilinders, setCilinders] = useState('');
-  const [delivery, setDelivery] = useState('');
-  const [management, setManagement] = useState('');
-  const [module, setModule] = useState('');
-  const [comms, setComms] = useState('');
+  const [index, setIndex] = useState(0);
   const [form, setForm] = useState('');
 
   const handleChange = (event) => {
@@ -68,65 +61,88 @@ function NestedSelects() {
       ...form,
       [name]: value,
     });
-    console.log(form);
+    setIndex(index + 1);
   };
 
   return (
     <div className='w-full max-w-xs m-auto'>
       <h1 className='text-5xl font-bold '>Cotización</h1>
-      <SelectList
-        title='labor'
-        //title='opcion1'
-        content=''
-        onChange={handleChange}
-      />
-      {labor && (
-        <SelectList
-          title='injection'
-          //title='opcion1'
-          content=''
+      {Object.keys(form).length === 0 && (
+        <select
+          name={menus[index].seleccion}
           onChange={handleChange}
-        />
+          className='appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+        >
+          {menus[index].opciones.map((element) => (
+            <option value={element}>{element}</option>
+          ))}
+        </select>
       )}
-      {injection && (
-        <SelectList
-          title='cilinders'
-          //title='opcion1'
-          content=''
+      {Object.keys(form).length === 1 && (
+        <select
+          name={menus[index].seleccion}
           onChange={handleChange}
-        />
+          className='appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+        >
+          {menus[index].opciones.map((element) => (
+            <option value={element}>{element}</option>
+          ))}
+        </select>
       )}
-      {cilinders && (
-        <SelectList
-          title='delivery'
-          //title='opcion1'
-          content=''
+      {Object.keys(form).length === 2 && (
+        <select
+          name={menus[index].seleccion}
           onChange={handleChange}
-        />
+          className='appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+        >
+          {menus[index].opciones.map((element) => (
+            <option value={element}>{element}</option>
+          ))}
+        </select>
       )}
-      {delivery && (
-        <SelectList
-          title='efficiency'
-          //title='opcion1'
-          content=''
+      {Object.keys(form).length === 3 && (
+        <select
+          name={menus[index].seleccion}
           onChange={handleChange}
-        />
+          className='appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+        >
+          {menus[index].opciones.map((element) => (
+            <option value={element}>{element}</option>
+          ))}
+        </select>
       )}
-      {management && (
-        <SelectList
-          title='module'
-          //title='opcion1'
-          content=''
+      {Object.keys(form).length === 4 && (
+        <select
+          name={menus[index].seleccion}
           onChange={handleChange}
-        />
+          className='appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+        >
+          {menus[index].opciones.map((element) => (
+            <option value={element}>{element}</option>
+          ))}
+        </select>
       )}
-      {module && (
-        <SelectList
-          title='comms'
-          //title='opcion1'
-          content=''
+      {Object.keys(form).length === 5 && (
+        <select
+          name={menus[index].seleccion}
           onChange={handleChange}
-        />
+          className='appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+        >
+          {menus[index].opciones.map((element) => (
+            <option value={element}>{element}</option>
+          ))}
+        </select>
+      )}
+      {Object.keys(form).length === 6 && (
+        <select
+          name={menus[index].seleccion}
+          onChange={handleChange}
+          className='appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+        >
+          {menus[index].opciones.map((element) => (
+            <option value={element}>{element}</option>
+          ))}
+        </select>
       )}
     </div>
   );
