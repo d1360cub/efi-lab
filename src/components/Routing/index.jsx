@@ -5,6 +5,7 @@ import Login from '../Login';
 import Register from '../Register';
 import NestedSelects from '../NestedSelects';
 import { AuthProvider } from '../../hooks/useAuth';
+import SelectList from '../SelectList';
 
 function Routing() {
   return (
@@ -15,7 +16,8 @@ function Routing() {
             <Route path='/' element={<Home />} />
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
-            <Route path='/quotation' element={<NestedSelects />} />
+            <Route path='/quotes' element={<NestedSelects />} />.
+            <Route path='/quotation' element={<SelectList />} />
           </Routes>
         </AuthProvider>
       </div>
