@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import control from '../../assets/control.png';
-import logo from '../../assets/logo.png';
+import { FcAdvance, FcCollaboration, FcHome, FcRatings } from 'react-icons/fc';
 
 function Sidebar() {
   const [open, setOpen] = useState(true);
@@ -22,14 +22,14 @@ function Sidebar() {
           onClick={() => setOpen(!open)}
         />
         <Link to='/'>
-          <div className='flex gap-x-4 items-center pb-1'>
-            <img
-              src={logo}
-              alt={'Efi lab'}
+          <div className='flex gap-x-4 items-center pb-1 hover:bg-sky-700'>
+            <div
               className={`cursor-pointer duration-500 ${
                 open && 'rotate-[360deg]'
               }`}
-            />
+            >
+              <FcHome size='2.4rem' />
+            </div>
             <h1
               className={`origin-left font-medium text-xl duration-300 ${
                 !open && 'scale-0'
@@ -41,13 +41,13 @@ function Sidebar() {
         </Link>
         <Link to='/login'>
           <div className='flex gap-x-4 items-center pb-1'>
-            <img
-              src={logo}
-              alt={'Efi lab'}
+            <div
               className={`cursor-pointer duration-500 ${
                 open && 'rotate-[360deg]'
               }`}
-            />
+            >
+              <FcRatings size='2.4rem' />
+            </div>
             <h1
               className={`origin-left font-medium text-xl duration-300 ${
                 !open && 'scale-0'
@@ -59,13 +59,13 @@ function Sidebar() {
         </Link>
         <Link to='/about'>
           <div className='flex gap-x-4 items-center pb-1'>
-            <img
-              src={logo}
-              alt={'Efi lab'}
+            <div
               className={`cursor-pointer duration-500 ${
                 open && 'rotate-[360deg]'
               }`}
-            />
+            >
+              <FcCollaboration size='2.4rem' />
+            </div>
             <h1
               className={`origin-left font-medium text-xl duration-300 ${
                 !open && 'scale-0'
@@ -77,13 +77,13 @@ function Sidebar() {
         </Link>
         <Link to='/login'>
           <div className='flex gap-x-4 items-center'>
-            <img
-              src={logo}
-              alt={'Efi lab'}
+            <div
               className={`cursor-pointer duration-500 ${
                 open && 'rotate-[360deg]'
               }`}
-            />
+            >
+              <FcAdvance size='2.4rem' />
+            </div>
             <h1
               className={`origin-left font-medium text-xl duration-300 ${
                 !open && 'scale-0'
