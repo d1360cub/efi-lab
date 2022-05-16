@@ -28,7 +28,9 @@ function Sidebar() {
                 open && 'rotate-[360deg]'
               }`}
             >
-              <FcHome size='2.4rem' />
+              <div class='tooltip tooltip-success' data-tip='Inicio'>
+                <FcHome size='2.4rem' />
+              </div>
             </div>
             <h1
               className={`origin-left font-medium text-xl duration-300 ${
@@ -40,13 +42,15 @@ function Sidebar() {
           </div>
         </Link>
         <Link to='/login'>
-          <div className='flex gap-x-4 items-center pb-1'>
+          <div className='flex gap-x-4 items-center pb-1 hover:bg-sky-700'>
             <div
               className={`cursor-pointer duration-500 ${
                 open && 'rotate-[360deg]'
               }`}
             >
-              <FcRatings size='2.4rem' />
+              <div class='tooltip tooltip-success' data-tip='Cotiza'>
+                <FcRatings size='2.4rem' />
+              </div>
             </div>
             <h1
               className={`origin-left font-medium text-xl duration-300 ${
@@ -58,13 +62,15 @@ function Sidebar() {
           </div>
         </Link>
         <Link to='/about'>
-          <div className='flex gap-x-4 items-center pb-1'>
+          <div className='flex gap-x-4 items-center pb-1 hover:bg-sky-700'>
             <div
               className={`cursor-pointer duration-500 ${
                 open && 'rotate-[360deg]'
               }`}
             >
-              <FcCollaboration size='2.4rem' />
+              <div class='tooltip tooltip-success' data-tip='Nosotros'>
+                <FcCollaboration size='2.4rem' />
+              </div>
             </div>
             <h1
               className={`origin-left font-medium text-xl duration-300 ${
@@ -76,13 +82,15 @@ function Sidebar() {
           </div>
         </Link>
         <Link to='/login'>
-          <div className='flex gap-x-4 items-center'>
+          <div className='flex gap-x-4 items-center hover:bg-sky-700'>
             <div
               className={`cursor-pointer duration-500 ${
                 open && 'rotate-[360deg]'
               }`}
             >
-              <FcAdvance size='2.4rem' />
+              <div class='tooltip tooltip-success' data-tip='Ingresa'>
+                <FcAdvance size='2.4rem' />
+              </div>
             </div>
             <h1
               className={`origin-left font-medium text-xl duration-300 ${
