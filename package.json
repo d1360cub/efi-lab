@@ -2,6 +2,10 @@
   "name": "firebase-tailwind",
   "version": "0.1.0",
   "private": true,
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "author": "d1360cub",
+  "license": "MIT",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
@@ -38,12 +42,9 @@
       "last 1 safari version"
     ]
   },
-  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
-  "main": "index.js",
-  "author": "d1360cub",
-  "license": "MIT",
   "devDependencies": {
     "autoprefixer": "^10.4.7",
+    "daisyui": "^2.15.0",
     "postcss": "^8.4.13",
     "tailwindcss": "^3.0.24"
   }

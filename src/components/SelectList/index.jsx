@@ -2,15 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { getCollection } from '../../firebase/collectionsFirebase';
 
 function SelectList() {
-  const [data, setData] = useState([]);
+  const [imag, setImag] = useState([]);
+  console.log('🚀 ~ file: index.jsx ~ line 7 ~ SelectList ~ imag', imag.id);
 
   useEffect(() => {
-    getCollection('options').then((options) => {
-      setData(options);
+    getCollection('slider').then((slider) => {
+      setImag(slider);
     });
   }, []);
 
-  return <div>{data}</div>;
+  return <div className='App-header'>fgfgs</div>;
 }
 
 export default SelectList;
