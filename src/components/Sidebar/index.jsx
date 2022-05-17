@@ -25,7 +25,7 @@ function Sidebar() {
       <div
         className={`${
           open ? 'w-55' : 'w-20'
-        } border-2 border-lime-500 rounded h-screen p-5 pt-8 relative duration-300`}
+        } border-2 border-lime-500 rounded-lg h-screen p-5 pt-8 relative duration-300`}
       >
         <img
           src={control}

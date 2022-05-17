@@ -1,57 +1,42 @@
 import React from 'react';
+import Card from '../Card';
 
 function About() {
+  const data = [
+    {
+      id: 0,
+      source:
+        'https://res.cloudinary.com/mentalhealth/image/upload/v1651764965/sq0umlhyb3mxisysdafp.jpg',
+      name: 'cristian',
+      description: 'gerente',
+    },
+    {
+      id: 1,
+      source:
+        'https://res.cloudinary.com/mentalhealth/image/upload/v1651765260/t5mubmgj9nsl2lrbtbon.jpg',
+      name: 'carlos',
+      description: 'gerente2',
+    },
+    {
+      id: 2,
+      source:
+        'https://res.cloudinary.com/mentalhealth/image/upload/v1651604082/k4v180ykcradvmyzw8qr.jpg',
+      name: 'diego',
+      description: 'web',
+    },
+  ];
+  console.log('data', data[0]);
   return (
-    <>
-      <div className='card w-90 shadow-xl'>
-        <figure>
-          <img
-            src='https://res.cloudinary.com/mentalhealth/image/upload/v1651764965/sq0umlhyb3mxisysdafp.jpg'
-            alt='Album'
-            className='object-scale-down h-48 w-96'
-          />
-        </figure>
-        <div className='card-body'>
-          <h2 className='card-title justify-center'>Cristian Osorio</h2>
-          <p>Click the button to listen on Spotiwhy app.</p>
-          <div className='card-actions justify-end'>
-            <button className='btn btn-primary'>Listen</button>
-          </div>
-        </div>
-      </div>
-      <div className='card w-96 bg-base-100 shadow-xl'>
-        <figure>
-          <img
-            src='https://res.cloudinary.com/mentalhealth/image/upload/v1651765260/t5mubmgj9nsl2lrbtbon.jpg'
-            alt='Album'
-            className='object-cover h-48 w-96'
-          />
-        </figure>
-        <div className='card-body'>
-          <h2 className='card-title justify-center'>Carlos Pardo</h2>
-          <p>Click the button to listen on Spotiwhy app.</p>
-          <div className='card-actions justify-end'>
-            <button className='btn btn-primary'>Listen</button>
-          </div>
-        </div>
-      </div>
-      <div className='card w-96 bg-base-100 shadow-xl'>
-        <figure>
-          <img
-            src='https://res.cloudinary.com/mentalhealth/image/upload/v1651604082/k4v180ykcradvmyzw8qr.jpg'
-            alt='Album'
-            className='object-cover h-48 w-96'
-          />
-        </figure>
-        <div className='card-body'>
-          <h2 className='card-title justify-center'>Diego Cubides</h2>
-          <p>Click the button to listen on Spotiwhy app.</p>
-          <div className='card-actions justify-end'>
-            <button className='btn btn-primary'>Listen</button>
-          </div>
-        </div>
-      </div>
-    </>
+    <div className='flex justify-between'>
+      {data.map((element) => (
+        <Card
+          key={element.id}
+          source={element.source}
+          name={element.name}
+          description={element.description}
+        />
+      ))}
+    </div>
   );
 }
 
