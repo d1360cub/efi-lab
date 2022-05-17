@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { getServiceById } from '../../firebase/collectionsFirebase';
 import Card from '../Card';
 
 function About() {
-  const data = [
+  /*const data = [
     {
       id: 0,
       source:
@@ -25,13 +26,18 @@ function About() {
       description: 'web',
     },
   ];
-  console.log('data', data[0]);
+  console.log('data', data[0]);*/
+  const [data, setData] = useState({});
+  useEffect(() => {
+    getServiceById('slider', 'juVGgpVXeGVlEXv4ORH6').then((infoSlider) =>
+      setData(infoSlider)
+    );
+  }, []);
   return (
     <div className='flex justify-between'>
-      {data.map((element) => (
+      {data.infoSlider.map((element) => (
         <Card
-          key={element.id}
-          source={element.source}
+          source={element.avatar}
           name={element.name}
           description={element.description}
         />
