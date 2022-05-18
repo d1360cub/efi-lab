@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {
   createDocument,
-  getCollection,
+  getDocument,
 } from '../../firebase/collectionsFirebase';
 
 /*const menus = [
@@ -68,6 +68,7 @@ function NestedSelects() {
     });
     setIndex(index + 1);
   };
+  console.log('form', form);
 
   const handleClick = (event) => {
     event.preventDefault();
@@ -75,8 +76,8 @@ function NestedSelects() {
   };
 
   useEffect(() => {
-    getCollection('options').then((options) => {
-      setMenus(options);
+    getDocument('services', 'aHBKBjc63ZOaoRKzgh06').then(({ menus }) => {
+      setMenus(menus);
     });
   }, []);
   console.log('menu', menus.displayMenu);

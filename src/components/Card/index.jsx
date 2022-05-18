@@ -1,13 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { getCollection } from '../../firebase/collectionsFirebase';
+import React from 'react';
 
 function Card({ source, name, description }) {
-  const [imag, setImag] = useState('');
-  useEffect(() => {
-    getCollection('slider').then((slider) => {
-      setImag(slider);
-    });
-  }, []);
   return (
     <div className='card w-64 bg-base-100 shadow-lg ml-6 border-2 border-lime-500'>
       <figure className='px-4 pt-6 '>
