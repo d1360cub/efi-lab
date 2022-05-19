@@ -5,6 +5,7 @@ import Login from '../Login';
 import Register from '../Register';
 import Quotes from '../Quotes';
 import About from '../About';
+import Projects from '../Projects';
 import { AuthProvider } from '../../hooks/useAuth';
 import SelectList from '../SelectList';
 import Sidebar from '../Sidebar';
@@ -22,6 +23,7 @@ function Routing() {
             <Route path='/quotes' element={<Quotes />} />
             <Route path='/about' element={<About />} />
             <Route path='/quotation' element={<SelectList />} />
+            <Route path='/form' element={<Projects />} />
           </Routes>
         </AuthProvider>
       </div>

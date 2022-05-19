@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getCollection } from '../../firebase/collectionsFirebase';
 import Card from '../Card';
+import Logo from '../Logo';
 
 function About() {
   const [data, setData] = useState([]);
@@ -17,6 +18,7 @@ function About() {
         <p>Loading...</p>
       ) : (
         <div className='flex flex-wrap'>
+          <Logo />
           {data.map((element) => (
             <div class='carousel carousel-center rounded-box'>
               <Card

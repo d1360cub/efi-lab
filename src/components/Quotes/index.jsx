@@ -5,7 +5,7 @@ import {
 } from '../../firebase/collectionsFirebase';
 
 function Quotes() {
-  const [menus, setMenus] = useState([]);
+  const [menu, setMenu] = useState({});
   const [index, setIndex] = useState(0);
   const [form, setForm] = useState('');
 
@@ -25,157 +25,45 @@ function Quotes() {
   };
 
   useEffect(() => {
-    getDocument('services', 'aHBKBjc63ZOaoRKzgh06').then(({ menus }) => {
-      setMenus(menus);
+    getDocument('services', 'Ep6ATdkUcqWIqUcTSuC7').then(({ menus }) => {
+      setMenu(menus);
     });
   }, []);
 
   return (
     <div className='w-full max-w-xs m-auto'>
-      {!menus.length ? (
+      {!menu.length ? (
         <p>Loading...</p>
       ) : (
         <>
-          <h1 className='text-5xl font-bold py-8'>Cotización</h1>
-          {Object.keys(form).length === 0 && (
-            <fieldset>
-              <label className='animate-bounce block text-lime-500 text-2xl font-bold mb-2 py-1'>
-                1. Clase de trabajo
-              </label>
+          {/*menu.map((element) => (
+            <>
+              <p>{element.title}</p>
               <select
-                name={menus[index].opciones}
-                onChange={handleChange}
+                name='opcion1'
+                //onChange={handleChange}
                 className='appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
               >
                 <option value=''>Seleccione una opción</option>
-                {menus[index].opciones.map((element) => (
-                  <option value={element}>{element}</option>
+                {element.options.map((item) => (
+                  <option value={item.cost}>{item.value}</option>
                 ))}
               </select>
-            </fieldset>
-          )}
-          {Object.keys(form).length === 1 && (
-            <fieldset>
-              <label className='animate-bounce block text-lime-500 text-2xl font-bold mb-2 py-1'>
-                2. Tipo de inyección
-              </label>
-              <select
-                name={menus[index].opciones}
-                onChange={handleChange}
-                className='appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
-              >
-                <option value=''>Seleccione una opción</option>
-                {menus[index].opciones.map((element) => (
-                  <option value={element}>{element}</option>
-                ))}
-              </select>
-            </fieldset>
-          )}
-          {Object.keys(form).length === 2 && (
-            <fieldset>
-              <label className='animate-bounce block text-lime-500 text-2xl font-bold mb-2 py-1'>
-                3. Número de cilindros
-              </label>
-              <select
-                name={menus[index].opciones}
-                onChange={handleChange}
-                className='appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
-              >
-                <option value=''>Seleccione una opción</option>
-                {menus[index].opciones.map((element) => (
-                  <option value={element}>{element}</option>
-                ))}
-              </select>
-            </fieldset>
-          )}
-          {Object.keys(form).length === 3 && (
-            <fieldset>
-              <label className='animate-bounce block text-lime-500 text-2xl font-bold mb-2 py-1'>
-                4. Tipo de entrega
-              </label>
-              <select
-                name={menus[index].opciones}
-                onChange={handleChange}
-                className='appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
-              >
-                <option value=''>Seleccione una opción</option>
-                {menus[index].opciones.map((element) => (
-                  <option value={element}>{element}</option>
-                ))}
-              </select>
-            </fieldset>
-          )}
-          {Object.keys(form).length === 4 && (
-            <fieldset>
-              <label className='animate-bounce block text-lime-500 text-2xl font-bold mb-2 py-1'>
-                5. Tipo de gestión
-              </label>
-              <select
-                name={menus[index].opciones}
-                onChange={handleChange}
-                className='appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
-              >
-                <option value=''>Seleccione una opción</option>
-                {menus[index].opciones.map((element) => (
-                  <option value={element}>{element}</option>
-                ))}
-              </select>
-            </fieldset>
-          )}
-          {Object.keys(form).length === 5 && (
-            <fieldset>
-              <label className='animate-bounce block text-lime-500 text-2xl font-bold mb-2 py-1'>
-                6. Módulo de señales de entrada y salida
-              </label>
-              <select
-                name={menus[index].opciones}
-                onChange={handleChange}
-                className='appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
-              >
-                <option value=''>Seleccione una opción</option>
-                {menus[index].opciones.map((element) => (
-                  <option value={element}>{element}</option>
-                ))}
-              </select>
-            </fieldset>
-          )}
-          {Object.keys(form).length === 6 && (
-            <fieldset>
-              <label className='animate-bounce block text-lime-500 text-2xl font-bold mb-2 py-1'>
-                7. Módulo de comunicaciones
-              </label>
-              <select
-                name={menus[index].opciones}
-                onChange={handleChange}
-                className='appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
-              >
-                <option value=''>Seleccione una opción</option>
-                {menus[index].opciones.map((element) => (
-                  <option value={element}>{element}</option>
-                ))}
-              </select>
-            </fieldset>
-          )}
-          {Object.keys(form).length === 7 && (
-            <div className='flex items-center justify-between '>
-              <button
-                onClick={handleClick}
-                className='transition 
-            duration-700 
-            ease-in-out
-            transform hover:-translate-y-1 
-            hover:scale-110 
-            bg-lime-500 
-            hover:bg-cyan-300 
-            text-slate-900 
-            font-semibold 
-            py-3 px-6 
-            rounded-md'
-              >
-                Enviar especificaciones
-              </button>
-            </div>
-          )}
+            </>
+                ))*/}
+          <label className='animate-bounce block text-lime-500 text-2xl font-bold mb-2 py-1'>
+            {`${index + 1}. ${menu[index].title}`}
+          </label>
+          <select
+            name='opcion1'
+            onChange={handleChange}
+            className='appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+          >
+            <option value=''>Seleccione una opción</option>
+            {menu[index].options.map((item) => (
+              <option value={item.cost}>{item.value}</option>
+            ))}
+          </select>
         </>
       )}
     </div>

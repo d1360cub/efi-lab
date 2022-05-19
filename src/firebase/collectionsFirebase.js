@@ -24,10 +24,8 @@ export async function createDocument(collectionName, data) {
 }
 
 export async function getDocument(collectionName, id) {
-  console.log('dentro del getdocument');
   const docRef = doc(db, collectionName, id);
   const docSnap = await getDoc(docRef);
-
   if (docSnap.exists()) {
     return docSnap.data();
   }

@@ -7,6 +7,7 @@ import {
   FcHome,
   FcRatings,
   FcKey,
+  FcSupport,
 } from 'react-icons/fc';
 import { useAuth } from '../../hooks/useAuth';
 
@@ -17,7 +18,7 @@ function Sidebar() {
 
   const handleLogout = async () => {
     await logout();
-    navigate('/login');
+    navigate('/');
   };
 
   return (
@@ -55,26 +56,50 @@ function Sidebar() {
             </h1>
           </div>
         </Link>
-        <Link to='/login'>
-          <div className='flex gap-x-4 items-center pb-1 hover:bg-sky-700'>
-            <div
-              className={`cursor-pointer duration-500 ${
-                open && 'rotate-[360deg]'
-              }`}
-            >
-              <div className='tooltip tooltip-success' data-tip='Cotiza'>
-                <FcRatings size='2.4rem' />
+        {user && (
+          <>
+            <Link to='/quotes'>
+              <div className='flex gap-x-4 items-center pb-1 hover:bg-sky-700'>
+                <div
+                  className={`cursor-pointer duration-500 ${
+                    open && 'rotate-[360deg]'
+                  }`}
+                >
+                  <div className='tooltip tooltip-success' data-tip='Cotiza'>
+                    <FcRatings size='2.4rem' />
+                  </div>
+                </div>
+                <h1
+                  className={`origin-left font-medium text-xl duration-300 ${
+                    !open && 'scale-0'
+                  }`}
+                >
+                  Cotiza
+                </h1>
               </div>
-            </div>
-            <h1
-              className={`origin-left font-medium text-xl duration-300 ${
-                !open && 'scale-0'
-              }`}
-            >
-              Cotiza
-            </h1>
-          </div>
-        </Link>
+            </Link>
+            <Link to='/form'>
+              <div className='flex gap-x-4 items-center pb-1 hover:bg-sky-700'>
+                <div
+                  className={`cursor-pointer duration-500 ${
+                    open && 'rotate-[360deg]'
+                  }`}
+                >
+                  <div className='tooltip tooltip-success' data-tip='Cotiza'>
+                    <FcSupport size='2.4rem' />
+                  </div>
+                </div>
+                <h1
+                  className={`origin-left font-medium text-xl duration-300 ${
+                    !open && 'scale-0'
+                  }`}
+                >
+                  Comparte tu proyecto
+                </h1>
+              </div>
+            </Link>
+          </>
+        )}
         <Link to='/about'>
           <div className='flex gap-x-4 items-center pb-1 hover:bg-sky-700'>
             <div
@@ -91,7 +116,7 @@ function Sidebar() {
                 !open && 'scale-0'
               }`}
             >
-              Nosotros
+              Nuestros proyectos
             </h1>
           </div>
         </Link>
