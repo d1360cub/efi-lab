@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { getDocument } from '../../firebase/collectionsFirebase';
+import { getCollection } from '../../firebase/collectionsFirebase';
 import Card from '../Card';
 
 function About() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    getDocument('slider', 'juVGgpVXeGVlEXv4ORH6').then(({ infoSlider }) => {
-      setData(infoSlider);
+    getCollection('card').then((card) => {
+      setData(card);
     });
   }, []);
 
@@ -18,7 +18,7 @@ function About() {
       ) : (
         <div className='flex flex-wrap'>
           {data.map((element) => (
-            <div>
+            <div class='carousel carousel-center rounded-box'>
               <Card
                 source={element.avatar}
                 name={element.name}

@@ -1,5 +1,12 @@
 import { db } from './firebaseConfig';
-import { collection, getDoc, getDocs, addDoc, doc } from 'firebase/firestore';
+import {
+  collection,
+  getDoc,
+  getDocs,
+  addDoc,
+  doc,
+  setDoc,
+} from 'firebase/firestore';
 
 export async function getCollection(collectionName) {
   const getCol = collection(db, collectionName);
@@ -22,9 +29,12 @@ export async function getDocument(collectionName, id) {
   const docSnap = await getDoc(docRef);
 
   if (docSnap.exists()) {
-    console.log('docSnap', docSnap.data());
     return docSnap.data();
   }
-  console.log('está vacío');
   return null;
+}
+
+export async function setDocument(collectionName, documentId, data) {
+  const docRef = doc(db, collectionName, documentId);
+  setDoc(docRef, data, { merge: true });
 }
