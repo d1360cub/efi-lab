@@ -9,6 +9,7 @@ import Projects from '../Projects';
 import { AuthProvider } from '../../hooks/useAuth';
 import SelectList from '../SelectList';
 import Sidebar from '../Sidebar';
+import { ProtectedRoutes } from '../ProtectedRoutes';
 
 function Routing() {
   return (
@@ -20,10 +21,24 @@ function Routing() {
             <Route path='/' element={<Home />} />
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
-            <Route path='/quotes' element={<Quotes />} />
+            <Route
+              path='/quotes'
+              element={
+                <ProtectedRoutes>
+                  <Quotes />
+                </ProtectedRoutes>
+              }
+            />
             <Route path='/about' element={<About />} />
             <Route path='/quotation' element={<SelectList />} />
-            <Route path='/form' element={<Projects />} />
+            <Route
+              path='/form'
+              element={
+                <ProtectedRoutes>
+                  <Projects />
+                </ProtectedRoutes>
+              }
+            />
           </Routes>
         </AuthProvider>
       </div>

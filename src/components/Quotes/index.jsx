@@ -27,10 +27,6 @@ function Quotes() {
   };
   console.log(quote);
 
-  function addTotal() {
-    console.log('dentro de add total');
-    setTotal(total + 1);
-  }
   console.log('🚀 ~ file: index.jsx ~ line 32 ~ addTotal ~ total', total);
 
   useEffect(() => {
@@ -53,19 +49,17 @@ function Quotes() {
               </label>
               <select
                 name={`opcion${index + 1}`}
-                onChange={addTotal}
+                onChange={handleChange}
                 className='appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
               >
                 <option value=''>Seleccione una opción</option>
                 {menu[index].options.map((item) => (
-                  <option value={item.value} onClick={handleChange}>
-                    {item.value}
-                  </option>
+                  <option value={item.value}>{item.value}</option>
                 ))}
               </select>
             </fieldset>
           )}
-          {/*Object.keys(form).length === 1 && (
+          {Object.keys(form).length === 1 && (
             <fieldset>
               <label className='animate-bounce block text-lime-500 text-2xl font-bold mb-2 py-1'>
                 {`${index + 1}. ${menu[index].title}`}
@@ -77,12 +71,7 @@ function Quotes() {
               >
                 <option value=''>Seleccione una opción</option>
                 {menu[index].options.map((item) => (
-                  <option
-                    value={item.value}
-                    onChange={() => setTotal(total + Number(item.cost))}
-                  >
-                    {item.value}
-                  </option>
+                  <option value={item.value}>{item.value}</option>
                 ))}
               </select>
             </fieldset>
@@ -116,12 +105,7 @@ function Quotes() {
               >
                 <option value=''>Seleccione una opción</option>
                 {menu[index].options.map((item) => (
-                  <option
-                    value={item.value}
-                    //onChange={() => addTotal(Number(item.cost))}
-                  >
-                    {item.value}
-                  </option>
+                  <option value={item.value}>{item.value}</option>
                 ))}
               </select>
             </fieldset>
@@ -138,12 +122,7 @@ function Quotes() {
               >
                 <option value=''>Seleccione una opción</option>
                 {menu[index].options.map((item) => (
-                  <option
-                    value={item.value}
-                    //onChange={() => addTotal(Number(item.cost))}
-                  >
-                    {item.value}
-                  </option>
+                  <option value={item.value}>{item.value}</option>
                 ))}
               </select>
             </fieldset>
@@ -160,12 +139,7 @@ function Quotes() {
               >
                 <option value=''>Seleccione una opción</option>
                 {menu[index].options.map((item) => (
-                  <option
-                    value={item.value}
-                    //onChange={() => addTotal(Number(item.cost))}
-                  >
-                    {item.value}
-                  </option>
+                  <option value={item.value}>{item.value}</option>
                 ))}
               </select>
             </fieldset>
@@ -182,16 +156,11 @@ function Quotes() {
               >
                 <option value=''>Seleccione una opción</option>
                 {menu[index].options.map((item) => (
-                  <option
-                    value={item.value}
-                    //onChange={() => addTotal(Number(item.cost))}
-                  >
-                    {item.value}
-                  </option>
+                  <option value={item.value}>{item.value}</option>
                 ))}
               </select>
             </fieldset>
-                )*/}
+          )}
           {Object.keys(form).length === 7 && (
             <div className='flex items-center justify-between '>
               <button
