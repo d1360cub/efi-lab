@@ -13,8 +13,6 @@ function Home() {
     });
   }, []);
 
-  console.log('data', data);
-
   return (
     <>
       {!data.length ? (

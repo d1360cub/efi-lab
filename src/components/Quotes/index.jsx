@@ -8,8 +8,6 @@ function Quotes() {
   const navigate = useNavigate();
   const [menu, setMenu] = useState({});
   const [index, setIndex] = useState(0);
-  const [total, setTotal] = useState(1256);
-  const [quote, setQuote] = useState({});
   const [form, setForm] = useState('');
 
   const handleChange = (event) => {
@@ -23,14 +21,12 @@ function Quotes() {
 
   const handleClick = (event) => {
     event.preventDefault();
-    const arrayForm = Object.values(Object.values(form));
-    //arrayForm.map((element) => setTotal(total + 1));
-
-    setQuote({ ...form, total });
-    setDocument('test', `${user.uid}`, form);
+    const total = Object.values(form).reduce((acc, curr) => {
+      return curr.cost + acc;
+    }, 0);
+    setDocument('test', `${user.uid}`, { ...form, total });
     navigate(`/quote/${user.uid}`);
   };
-  console.log('quote desde quotes', quote);
 
   useEffect(() => {
     getDocument('services', 'Ep6ATdkUcqWIqUcTSuC7').then(({ menus }) => {
@@ -59,8 +55,10 @@ function Quotes() {
                   className='appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
                 >
                   <option value=''>Seleccione una opción</option>
-                  {menu[index].options.map((item) => (
-                    <option value={JSON.stringify(item)}>{item.value} </option>
+                  {menu[index].options.map((item, index) => (
+                    <option key={index} value={JSON.stringify(item)}>
+                      {item.value}{' '}
+                    </option>
                   ))}
                 </select>
               </fieldset>
@@ -76,8 +74,10 @@ function Quotes() {
                   className='appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
                 >
                   <option value=''>Seleccione una opción</option>
-                  {menu[index].options.map((item) => (
-                    <option value={JSON.stringify(item)}>{item.value}</option>
+                  {menu[index].options.map((item, index) => (
+                    <option key={index} value={JSON.stringify(item)}>
+                      {item.value}
+                    </option>
                   ))}
                 </select>
               </fieldset>
@@ -93,8 +93,10 @@ function Quotes() {
                   className='appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
                 >
                   <option value=''>Seleccione una opción</option>
-                  {menu[index].options.map((item) => (
-                    <option value={JSON.stringify(item)}>{item.value}</option>
+                  {menu[index].options.map((item, index) => (
+                    <option key={index} value={JSON.stringify(item)}>
+                      {item.value}
+                    </option>
                   ))}
                 </select>
               </fieldset>
@@ -110,8 +112,10 @@ function Quotes() {
                   className='appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
                 >
                   <option value=''>Seleccione una opción</option>
-                  {menu[index].options.map((item) => (
-                    <option value={JSON.stringify(item)}>{item.value}</option>
+                  {menu[index].options.map((item, index) => (
+                    <option key={index} value={JSON.stringify(item)}>
+                      {item.value}
+                    </option>
                   ))}
                 </select>
               </fieldset>
@@ -127,8 +131,10 @@ function Quotes() {
                   className='appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
                 >
                   <option value=''>Seleccione una opción</option>
-                  {menu[index].options.map((item) => (
-                    <option value={JSON.stringify(item)}>{item.value}</option>
+                  {menu[index].options.map((item, index) => (
+                    <option key={index} value={JSON.stringify(item)}>
+                      {item.value}
+                    </option>
                   ))}
                 </select>
               </fieldset>
@@ -144,8 +150,10 @@ function Quotes() {
                   className='appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
                 >
                   <option value=''>Seleccione una opción</option>
-                  {menu[index].options.map((item) => (
-                    <option value={JSON.stringify(item)}>{item.value}</option>
+                  {menu[index].options.map((item, index) => (
+                    <option key={index} value={JSON.stringify(item)}>
+                      {item.value}
+                    </option>
                   ))}
                 </select>
               </fieldset>
@@ -161,8 +169,10 @@ function Quotes() {
                   className='appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
                 >
                   <option value=''>Seleccione una opción</option>
-                  {menu[index].options.map((item) => (
-                    <option value={JSON.stringify(item)}>{item.value}</option>
+                  {menu[index].options.map((item, index) => (
+                    <option key={index} value={JSON.stringify(item)}>
+                      {item.value}
+                    </option>
                   ))}
                 </select>
               </fieldset>

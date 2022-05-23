@@ -10,9 +10,7 @@ function DynamicSelect({ menu, index }) {
       ...form,
       [name]: value,
     });
-    console.log('form del select', form);
     setTotal(total + parseInt(value));
-    console.log('total del select', total);
   };
 
   return (

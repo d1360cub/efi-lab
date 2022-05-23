@@ -15,7 +15,6 @@ function SelectList() {
       ...form,
       [name]: value,
     });
-    console.log(form, typeof form);
     setIndex(index + 1);
   };
 
@@ -29,7 +28,7 @@ function SelectList() {
       setMenu(menus);
     });
   }, []);
-  console.log(menu);
+
   return (
     <div className='w-full max-w-xs m-auto'>
       {!menu.length ? (

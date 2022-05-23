@@ -5,20 +5,13 @@ import { getDocument } from '../../firebase/collectionsFirebase';
 function FinalQuote() {
   const { user } = useAuth();
   const [quote, setQuote] = useState([]);
-  const [arrayForm, setArrayForm] = useState([]);
-  Object.keys(quote).map((item) =>
-    Object.keys(quote[item]).map((elt) =>
-      elt === 'value' ? console.log(quote[item][elt]) : null
-    )
-  );
 
   useEffect(() => {
     getDocument('test', `${user.uid}`).then((element) => {
       setQuote(element);
     });
-    //setArrayForm(Object.values(quote));
   }, []);
-  //console.log(arrayForm);*/
+
   return (
     <div>
       {!Object.values.length ? (
@@ -44,14 +37,18 @@ function FinalQuote() {
             <ul className='px-6'>
               {Object.keys(quote).map((item) =>
                 Object.keys(quote[item]).map((elem) =>
-                  elem === 'value' ? <li>{quote[item][elem]}</li> : <p></p>
+                  elem === 'value' ? (
+                    <li key={quote[item][elem]}>{quote[item][elem]}</li>
+                  ) : (
+                    <p></p>
+                  )
                 )
               )}
             </ul>
           </div>
           <div className='border-2 border-lime-500 rounded-lg p-5 ml-5'>
             <div className='text-5xl text-shadow-lg font-bold m-5 py-1 items-center bg-clip-text text-transparent bg-gradient-to-r from-lime-500 to-stone-500'>
-              Total cotización USD1256
+              Total cotización: USD {quote.total}
             </div>
           </div>
         </div>
