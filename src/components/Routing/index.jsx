@@ -10,6 +10,7 @@ import { AuthProvider } from '../../hooks/useAuth';
 import SelectList from '../SelectList';
 import Sidebar from '../Sidebar';
 import { ProtectedRoutes } from '../ProtectedRoutes';
+import FinalQuote from '../FinalQuote';
 
 function Routing() {
   return (
@@ -26,6 +27,14 @@ function Routing() {
               element={
                 <ProtectedRoutes>
                   <Quotes />
+                </ProtectedRoutes>
+              }
+            />
+            <Route
+              path='quote/:id'
+              element={
+                <ProtectedRoutes>
+                  <FinalQuote />
                 </ProtectedRoutes>
               }
             />

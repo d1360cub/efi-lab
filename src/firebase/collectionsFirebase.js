@@ -34,5 +34,5 @@ export async function getDocument(collectionName, id) {
 
 export async function setDocument(collectionName, documentId, data) {
   const docRef = doc(db, collectionName, documentId);
-  setDoc(docRef, data, { merge: true });
+  await setDoc(docRef, data, { merge: true });
 }

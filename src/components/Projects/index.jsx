@@ -32,11 +32,11 @@ const Projects = () => {
     navigate('/about');
   };
   return (
-    <>
-      <div className='text-5xl text-shadow-lg font-bold m-5 py-1 items-center'>
+    <div>
+      <div className='text-5xl bg-clip-text text-transparent bg-gradient-to-r from-stone-500 to-lime-500 font-bold text-center py-5'>
         COMPARTE TU PROYECTO
       </div>
-      <div className='flex justify-center items-center w-screen'>
+      <div className='flex justify-center w-screen'>
         <form onSubmit={handleSubmit}>
           <fieldset>
             <label className='animate-pulse block text-2xl font-bold mb-2 py-1'>
@@ -83,11 +83,11 @@ const Projects = () => {
             rounded-md
             mt-3'
           >
-            Crear empleado
+            Crear proyecto
           </button>
         </form>
       </div>
-    </>
+    </div>
   );
 };
 

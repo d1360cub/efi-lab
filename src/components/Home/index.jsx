@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getCollection } from '../../firebase/collectionsFirebase';
 import { useAuth } from '../../hooks/useAuth';
-import Card from '../Card';
-import Logo from '../Logo';
 
 function Home() {
   const [data, setData] = useState([]);
@@ -23,7 +21,9 @@ function Home() {
         <div>Loading...</div>
       ) : (
         <div>
-          <Logo />
+          <div className='text-8xl bg-clip-text text-transparent bg-gradient-to-r from-stone-500 to-lime-500 font-bold text-center'>
+            EFI LAB
+          </div>
           <section className='text-justify m-6'>
             <p>
               El sistema de inyección electrónica de combustible remplaza al
@@ -47,20 +47,6 @@ function Home() {
               contaminantes
             </p>
           </section>
-          {/*<section className='flex flex-wrap'>
-            <h1 className='text-center text-shadow-lg text-5xl m-5'>
-              LO QUE DICEN NUESTROS CLIENTES
-            </h1>
-            {data.map((element) => (
-              <div class='carousel carousel-center rounded-box'>
-                <Card
-                  source={element.avatar}
-                  name={element.name}
-                  description={element.description}
-                />
-              </div>
-            ))}
-            </section>*/}
           <section className='text-justify m-6 content-center'>
             <p>
               Ya diste un vistazo a todas las cosas interesantes que nuestros
